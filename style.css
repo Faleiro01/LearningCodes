@@ -28,9 +28,9 @@ body {
   width: 100px;
   height: 100px;
   background-color: blue;
-}
-
-div {
-  margin: auto;
+  left: 5300px;
   display: flex;
+  justify-content: flex-end;
+  position: relative;
+
 }
