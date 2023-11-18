@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>test for html!</title>
+<head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+       background-color: aqua;
+      }
+      ul {
+        list-style: none;
+        padding: 0px
+        
+      }
+      li {
+        padding: 2px;
+        margin-left: 20px;
+        display: inline-block;
+        background-color: gray;
+        border-radius: 2px;
+      }
+      li:first-child{
+        margin-left: 0px;
+      }
+      section.feature-box{
+        display: flex;
+}
+li:hover{
+    background-color: rgb(84, 84, 219);
+}
+      a {
+        text-decoration: none;
+      }
+      a:hover{
+        text-decoration: underline;
+      }
+      .feature-box div{
+        margin: 3px;
+        width: 100%;
+        border-radius: 4px;
+        }
+     .feature-box .st:hover{
+            background-color: blue;
+            text-decoration: underline;
+        }
+
+      .feature-box.sales div{
+        background-color: gray;
+
+      }
+    
+      .feature-box.furniture div{
+        background-color: pink;
+  }
+
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="test.html">Home</a></li>
+        <li><a href="test.html">Contact</a></li>
+        <li><a href="test.html">Location</a></li>
+        <li><a href="test.html">Direction</a></li>
+    </ul>
+    <section class="feature-box sales">
+      <div class="st">section a</div>
+      <div class="st">section b</div>
+      <div class="st">section c</div>
+ </section>
+ <section class="feature-box furniture">
+    <div class="st">section d</div>
+    <div class="st">section e</div>
+ </section>
+</body>
+
+
+
+
+</html>
