@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        #game-board {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #pacman {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: yellow;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+
+        .food {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="game-board">
+        <div id="pacman"></div>
+    </div>
+
+    <script>
+        const pacman = document.getElementById('pacman');
+        const gameBoard = document.getElementById('game-board');
+
+        let pacmanRotation = 0;
+        let pacmanDirection = 1; // 1 for right, -1 for left
+        let pacmanSpeed = 5;
+        let foodCount = 5;
+
+        function updatePacman() {
+            pacman.style.transform = `rotate(${pacmanRotation}deg) scaleX(${pacmanDirection})`;
+        }
+
+        function movePacman() {
+            pacmanRotation += 10 * pacmanDirection;
+            updatePacman();
+        }
+
+        function createFood() {
+            for (let i = 0; i < foodCount; i++) {
+                const food = document.createElement('div');
+                food.className = 'food';
+                food.style.top = `${Math.random() * 260 + 20}px`;
+                food.style.left = `${Math.random() * 260 + 20}px`;
+                gameBoard.appendChild(food);
+            }
+        }
+
+        function checkCollision() {
+            const pacmanRect = pacman.getBoundingClientRect();
+            const foods = document.getElementsByClassName('food');
+
+            for (let i = 0; i < foods.length; i++) {
+                const foodRect = foods[i].getBoundingClientRect();
+
+                if (
+                    pacmanRect.top < foodRect.bottom &&
+                    pacmanRect.bottom > foodRect.top &&
+                    pacmanRect.left < foodRect.right &&
+                    pacmanRect.right > foodRect.left
+                ) {
+                    foods[i].remove();
+                    foodCount--;
+
+                    if (foodCount === 0) {
+                        alert('You won!');
+                        resetGame();
+                    }
+                }
+            }
+        }
+
+        function resetGame() {
+            foodCount = 5;
+            gameBoard.innerHTML = '';
+            createFood();
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                pacmanDirection = 1;
+            } else if (event.key === 'ArrowLeft') {
+                pacmanDirection = -1;
+            }
+        });
+
+        setInterval(() => {
+            movePacman();
+            checkCollision();
+        }, 100);
+
+        createFood();
+    </script>
+</body>
+
+</html>
