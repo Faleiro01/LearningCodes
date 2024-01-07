@@ -1,0 +1,80 @@
+gabe@DESKTOP-JS8ERIF:~/springboard$ cd ..
+gabe@DESKTOP-JS8ERIF:~$ ls
+chickens  springboard
+gabe@DESKTOP-JS8ERIF:~$ mkdir first
+gabe@DESKTOP-JS8ERIF:~$ ls
+chickens  first  springboard
+gabe@DESKTOP-JS8ERIF:~$ mv first chickens
+gabe@DESKTOP-JS8ERIF:~$ ls
+chickens  springboard
+gabe@DESKTOP-JS8ERIF:~$ cd chickens
+gabe@DESKTOP-JS8ERIF:~/chickens$ ls
+Animals  Ultrasecret  first
+gabe@DESKTOP-JS8ERIF:~/chickens$ cd first
+gabe@DESKTOP-JS8ERIF:~/chickens/first$ ls
+gabe@DESKTOP-JS8ERIF:~/chickens/first$ touch person.txt
+gabe@DESKTOP-JS8ERIF:~/chickens/first$ ls
+person.txt
+gabe@DESKTOP-JS8ERIF:~/chickens/first$ mv person.txt another.txt
+gabe@DESKTOP-JS8ERIF:~/chickens/first$ ls
+another.txt
+gabe@DESKTOP-JS8ERIF:~/chickens/first$ cp another.txt /chickens/first/copy.txt
+cp: cannot create regular file '/chickens/first/copy.txt': No such file or directory
+gabe@DESKTOP-JS8ERIF:~/chickens/first$ ls
+another.txt
+gabe@DESKTOP-JS8ERIF:~/chickens/first$ cp another.txt ../copy.txt
+gabe@DESKTOP-JS8ERIF:~/chickens/first$ ls
+another.txt
+gabe@DESKTOP-JS8ERIF:~/chickens/first$ cd ..
+gabe@DESKTOP-JS8ERIF:~/chickens$ ls
+Animals  Ultrasecret  copy.txt  first
+gabe@DESKTOP-JS8ERIF:~/chickens$ rm copy.txt
+gabe@DESKTOP-JS8ERIF:~/chickens$ ls
+Animals  Ultrasecret  first
+gabe@DESKTOP-JS8ERIF:~/chickens$ cd ~
+gabe@DESKTOP-JS8ERIF:~$ ls
+chickens  springboard
+gabe@DESKTOP-JS8ERIF:~$ cd chickens
+gabe@DESKTOP-JS8ERIF:~/chickens$ ls
+Animals  Ultrasecret  first
+gabe@DESKTOP-JS8ERIF:~/chickens$ cp -r first ../second
+gabe@DESKTOP-JS8ERIF:~/chickens$ ls
+Animals  Ultrasecret  first
+gabe@DESKTOP-JS8ERIF:~/chickens$ cd ..
+gabe@DESKTOP-JS8ERIF:~$ ls
+chickens  second  springboard
+gabe@DESKTOP-JS8ERIF:~$ rmdirf second
+Command 'rmdirf' not found, did you mean:
+  command 'rmdir' from deb coreutils (8.32-4.1ubuntu1)
+gabe@DESKTOP-JS8ERIF:~$ rmdir second
+rmdir: failed to remove 'second': Directory not empty
+gabe@DESKTOP-JS8ERIF:~$ rmdir -r second
+rmdir: invalid option -- 'r'
+Try 'rmdir --help' for more information.
+gabe@DESKTOP-JS8ERIF:~$ rm -rf second
+gabe@DESKTOP-JS8ERIF:~$ ls
+chickens  springboard
+gabe@DESKTOP-JS8ERIF:~$ save
+Command 'save' not found, but can be installed with:
+sudo apt install atfs
+gabe@DESKTOP-JS8ERIF:~$ sv
+Command 'sv' not found, but can be installed with:
+sudo apt install runit
+gabe@DESKTOP-JS8ERIF:~$ ls
+chickens  springboard
+gabe@DESKTOP-JS8ERIF:~$ cd springboard
+gabe@DESKTOP-JS8ERIF:~/springboard$ ls
+teste.html
+gabe@DESKTOP-JS8ERIF:~/springboard$ code teste.html
+gabe@DESKTOP-JS8ERIF:~/springboard$
+
+man command opens the manual of that selected command you typed. press Q to quit.
+-l flag uses a long list format, a- flag -all
+alt left or right arrow
+alt+e to the end 
+alt+a to the beggining
+alt+u to delete
+terminal is the ubuntu application and shell is the program that runs it or runs the code you type.
+absolute path is when you type exactly where the directory is.
+relative path is when your not being specific of where the directory is.
+flag is some important commands that you use -r -l -a
