@@ -1,0 +1,108 @@
+gabe@DESKTOP-JS8ERIF:~/springboard$ mkdir learn_git_again
+gabe@DESKTOP-JS8ERIF:~/springboard$ ls
+gitLearning  learn_git_again  learningTerminal
+gabe@DESKTOP-JS8ERIF:~/springboard$ cd learn_git_again
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ touch third.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git innit
+git: 'innit' is not a git command. See 'git --help'.
+
+The most similar command is
+        init
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/gabe/springboard/learn_git_again/.git/
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ ls
+third.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ ls -a
+.  ..  .git  third.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git add third.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   third.txt
+
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git log
+fatal: your current branch 'master' does not have any commits yet
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ touch fourth.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ ls
+fourth.txt  third.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git add fourth.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   fourth.txt
+        new file:   third.txt
+
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ rm third.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ ls
+fourth.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   fourth.txt
+        new file:   third.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    third.txt
+
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git add third.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   fourth.txt
+
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git commit -m "removing third.txt"
+[master (root-commit) cfdb5b6] removing third.txt
+ Committer: Gabe <gabe@DESKTOP-JS8ERIF>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fourth.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git log
+commit cfdb5b6a6b0aa80753939102b4e959884b786aa5 (HEAD -> master)
+Author: Gabe <gabe@DESKTOP-JS8ERIF>
+Date:   Tue Jan 9 09:10:47 2024 -0500
+
+    removing third.txt
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ core.pager=cat
+core.pager=cat: command not found
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git config --global core.page=cat
+error: invalid key: core.page=cat
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git config --global core.pager "cat"
+gabe@DESKTOP-JS8ERIF:~/springboard/learn_git_again$ git config --global
