@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(74, 78, 78);
+}
+
+h1 {
+font-size: 40rem;
+font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.letter {
+    transition: color 1000ms;
+}
