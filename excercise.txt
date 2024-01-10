@@ -1,0 +1,150 @@
+- What ***git*** command creates a branch? A: git checkout -b <branch_name>
+- What is the difference between a fast-forward and recursive merge? A: fast forward only happens when if there have not been commits
+- What ***git*** command changes to another branch? A: git checkout <branch_name>
+- What ***git*** command deletes a branch? A: git branch -d or -D <branch_name>
+- How do merge conflicts happen? A: when there's been two same commits happen both on master or the branch you want merge.
+
+
+
+------------------------------------------------------------
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git branch
+* add-css
+  master
+  teal-bg
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git branch -d teal-bg
+error: The branch 'teal-bg' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D teal-bg'.
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git checkout master
+Switched to branch 'master'
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git log --oneline
+2f6a329 (HEAD -> master) merge branch
+2f876be someone else did this
+1dcbf0b (teal-bg) tweak css
+4e02009 changed color to purple
+d2acc73 (add-css) add basic styles
+0631c4f adding a exclamation point
+e5b691c add v1 of color script
+4902903 add basic html skeleton
+e9b8939 create index.html
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git branch -D teal-bg
+Deleted branch teal-bg (was 1dcbf0b).
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git branch
+  add-css
+* master
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git checkout -b excercise
+Switched to a new branch 'excercise'
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git status
+On branch excercise
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   app.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git add .
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git commit -m "Changed font-size and color to gray"
+[excercise c5ebd25] Changed font-size and color to gray
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git status
+On branch excercise
+nothing to commit, working tree clean
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git checkout master
+Switched to branch 'master'
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git log --oneline
+2f6a329 (HEAD -> master) merge branch
+2f876be someone else did this
+1dcbf0b tweak css
+4e02009 changed color to purple
+d2acc73 (add-css) add basic styles
+0631c4f adding a exclamation point
+e5b691c add v1 of color script
+4902903 add basic html skeleton
+e9b8939 create index.html
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git merge excercise
+Updating 2f6a329..c5ebd25
+Fast-forward
+ app.css | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git log --oneline
+c5ebd25 (HEAD -> master, excercise) Changed font-size and color to gray
+2f6a329 merge branch
+2f876be someone else did this
+1dcbf0b tweak css
+4e02009 changed color to purple
+d2acc73 (add-css) add basic styles
+0631c4f adding a exclamation point
+e5b691c add v1 of color script
+4902903 add basic html skeleton
+e9b8939 create index.html
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   app.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git add .
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git commit -m "for the excercise"
+[master 84dddc2] for the excercise
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git checkout excercise
+Switched to branch 'excercise'
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git status
+On branch excercise
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   app.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git add .
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git status
+On branch excercise
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   app.css
+
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git commit -m "for the test again"
+[excercise 5707fcb] for the test again
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git checkout master
+Switched to branch 'master'
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git merge excercise
+Auto-merging app.css
+CONFLICT (content): Merge conflict in app.css
+Automatic merge failed; fix conflicts and then commit the result.
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   app.css
+
+no changes added to commit (use "git add" and/or "git commit -a")
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git add .
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git commit -m "merge conflict solved"
+[master 15efeef] merge conflict solved
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git log --oneline
+15efeef (HEAD -> master) merge conflict solved
+5707fcb (excercise) for the test again
+84dddc2 for the excercise
+c5ebd25 Changed font-size and color to gray
+2f6a329 merge branch
+2f876be someone else did this
+1dcbf0b tweak css
+4e02009 changed color to purple
+d2acc73 (add-css) add basic styles
+0631c4f adding a exclamation point
+e5b691c add v1 of color script
+4902903 add basic html skeleton
+e9b8939 create index.html
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git branch -D excercise
+Deleted branch excercise (was 5707fcb).
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$ git branch
+  add-css
+* master
+gabe@DESKTOP-JS8ERIF:~/springboard/gitLearning$
